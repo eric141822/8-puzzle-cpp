@@ -5,6 +5,7 @@
 #include <string>
 #include <set>
 
+const std::vector<std::vector<int>> dirs = { {0, 1}, {0, -1}, {1, 0}, {-1, 0} };
 void expand(std::priority_queue<State> &pq, std::set<std::vector<std::vector<int>>>& visited, State curr);
 void path(State s);
 void print(std::vector<std::vector<int>> v);
@@ -55,7 +56,6 @@ int main(int argc, char* argv[]) {
 
 void expand(std::priority_queue<State> &pq, std::set<std::vector<std::vector<int>>>& visited, State curr) {
     visited.insert(curr.board);
-    std::vector<std::vector<int>> dirs = { {0, 1}, {0, -1}, {1, 0}, {-1, 0} };
     for (int i = 0; i < 3; i++) {
         for (int j = 0; j < 3; j++) {
             if (curr.board[i][j] == 0) {
